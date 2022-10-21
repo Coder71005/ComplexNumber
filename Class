@@ -1,0 +1,42 @@
+import java.util.Scanner; 
+public class ComplexNumber {
+	int imaginary; 
+	int real; 
+	
+public ComplexNumber(int imaginary,int real) {
+	this.real = real;
+	this.imaginary = imaginary; 	
+}
+
+public void plus(ComplexNumber C2) {
+	this.real = this.real+C2.real;
+	this.imaginary = this.imaginary + C2.imaginary; 	
+}
+public void multiply(ComplexNumber C2) {
+	this.real = this.real*C2.real-(this.imaginary*C2.imaginary);
+	this.imaginary = (this.real*C2.imaginary) + (this.imaginary*C2.real);  
+}
+public void print() {
+	System.out.println(real+" + "+"i"+imaginary);
+}
+public static void main(String[]args) {
+	Scanner sc = new Scanner(System.in); 
+	int real_1 = sc.nextInt();
+	int imaginary_1 = sc.nextInt();
+	
+	int real_2 = sc.nextInt();
+	int imaginary_2 = sc.nextInt(); 
+	
+	ComplexNumber C1 = new ComplexNumber(real_1,imaginary_1); 
+	ComplexNumber C2 = new ComplexNumber(real_2,imaginary_2); 
+	
+	int choice = sc.nextInt(); 
+	if (choice == 1)
+		C1.plus(C2);
+		C1.print();
+	
+	if (choice == 2)
+		C1.multiply(C2);
+		C1.print(); 	
+}
+}
